@@ -1,4 +1,4 @@
-package com.myFuzzyProject;
+package com.fuzzy;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
