@@ -15,17 +15,19 @@ public class Simulation {
 	}
 	
 	public void simulate(int angle, int velocity) {
-		while(y > 0) { //while dont heat the floor
+		while(y > 0) { //while don't heat the floor
 			vX = velocity*Math.cos(angle);//calculate vx and vy
 			vY = velocity*Math.sin(angle);
 			x = vX*time; //calculate x coordinate 
 			y = yC + vY*time - (g*(time*time))/2; //calculate y coordinate
+			
+			System.out.println(x+" "+y);
 			if(x == xA) { //check if yR for x coordinate equals xA
 				yR = y;
 			}
-			time++; //increments time
-		}
-		xR = x;			
+			time = time + 0.1; //increments time
+		} 
+		xR = x;	//TODO 		
   	}
 	
 	public double getDX() {
