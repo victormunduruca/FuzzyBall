@@ -39,7 +39,7 @@ FUZZIFY dy			// Fuzzify input variable 'dy': {'verylow', 'low' , 'high', 'veryhi
 END_FUZZIFY
 
 DEFUZZIFY speed			// Defzzzify output variable 'speed' : {'muchslower', 'slower', 'faster', 'muchfaster'}
-	TERM muchslower := (0,0) (5,1) (10,0);
+	TERM muchslower := (0,1) (5,1) (10,0);
 	TERM slower := (0,0) (5,1) (10,0);
 	TERM faster := (10,0) (15,1) (20,0);
 	TERM muchfaster := (10,0) (15,1) (20,0);

@@ -7,6 +7,7 @@ public class FuzzyBall {
 	public static void main(String[] args) throws Exception {
 		String filename = "tipper.fcl";
 		FIS fis = FIS.load(filename, true);
+		double dx, dy;
 
 		if (fis == null) {
 			System.err.println("Can't load file: '" + filename + "'");
@@ -16,23 +17,30 @@ public class FuzzyBall {
 		Simulation simulation = new Simulation(3, 2, 1);
 		simulation.simulate(45, 10);
 		
+		dx = simulation.getDX();
+		dy = simulation.getDY();
+		
+		System.out.println(dx);
+		System.out.println(dy);
+		
 //		
 //		// Get default function block
-//		FunctionBlock fb = fis.getFunctionBlock(null);
+		FunctionBlock fb = fis.getFunctionBlock(null);
 //
 //		// Set inputs
-//		fb.setVariable("food", 8.5);
-//		fb.setVariable("service", 7.5);
+		fb.setVariable("dx", dx);
+		fb.setVariable("dy", dy);
 //
 //		// Evaluate
-//		fb.evaluate();
+		fb.evaluate();
 //
 //		// Show output variable's chart
-//		fb.getVariable("tip").defuzzify();
+		fb.getVariable("speed").defuzzify();
+		fb.getVariable("angle").defuzzify();
 //
 //		// Print ruleSet
-//		System.out.println(fb);
-//		System.out.println("Tip: " + fb.getVariable("tip").getValue());
+		System.out.println(fb);
+		System.out.println("Speed: " + fb.getVariable("speed").getValue());
 
 	}
 
