@@ -24,24 +24,30 @@ END_VAR
 
 FUZZIFY dx			// Fuzzify input variable 'dx': {'farbehind', 'behind' , 'ahead', 'farahead'} 
 	TERM farbehind := (-10, 1) (-7, 1) (-4,0) ;
-	TERM behind := (-6, 0) (-3,1) (-1,1) (0,0);
+//	TERM behind := (-6, 0) (-3,1) (-1,1) (0,0);
+	TERM behind := (-6, 0) (-2.5,1) (0,0);
 //	TERM equal := (6, 0) (9, 1);
-	TERM ahead := (0, 0) (1, 1) (3, 1) (6, 0);
+//	TERM ahead := (0, 0) (1, 1) (3, 1) (6, 0);
+	TERM ahead := (0, 0) (2.5, 1) (6, 0);
 	TERM farahead := (4, 0) (7, 1) (10, 1);
 END_FUZZIFY
 
 FUZZIFY dy			// Fuzzify input variable 'dy': {'verylow', 'low' , 'high', 'veryhigh'}
-	TERM verylow := (-5.1, 1) (-3,1) (-2,0);
-	TERM low := (-3, 0) (-2,1) (-1,1) (0,0);
+	TERM verylow := (-5, 1) (-3,1) (-2,0);
+//	TERM low := (-3, 0) (-2,1) (-1,1) (0,0);
+	TERM low := (-3, 0) (-1.5, 1) (0,0);
 //	TERM equal := (6, 0) (9, 1);
-	TERM high := (0, 0) (1, 1) (2,1) (3,0);
-	TERM veryhigh := (2, 0) (3, 1) (5.1, 1);
+	TERM high := (0, 0) (1.5,1) (3,0);
+//	TERM high := (0, 0) (1, 1) (2,1) (3,0);
+	TERM veryhigh := (2, 0) (3, 1) (5, 1);
 END_FUZZIFY
 
 DEFUZZIFY speed			// Defzzzify output variable 'speed' : {'muchslower', 'slower', 'faster', 'muchfaster'}
 	TERM muchslower := (-5, 1) (-3,1) (-2,0);
-	TERM slower := (-3, 0) (-2,1) (-1,1) (0,0);
-	TERM faster := (0, 0) (1, 1) (2,1) (3,0);
+//	TERM slower := (-3, 0) (-2,1) (-1,1) (0,0);
+	TERM slower := (-3, 0) (-1.5,1) (0,0);
+	TERM faster := (0, 0) (1.5,1) (3,0);
+//	TERM faster := (0, 0) (1, 1) (2,1) (3,0);
 	TERM muchfaster := (2, 0) (3, 1) (5, 1);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
 	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
@@ -49,8 +55,10 @@ END_DEFUZZIFY
 
 DEFUZZIFY angle 		// Defzzzify output variable 'angle' : {'muchsmaller', 'smaller', 'bigger', 'muchbigger'}
 	TERM muchsmaller := (-40,1) (-25,1) (-15,0);
-	TERM smaller := (-25,0) (-15,1) (-5,1) (0,0);
-	TERM bigger := (0,0) (5,1) (15,1) (25,0);
+//	TERM smaller := (-25,0) (-15,1) (-5,1) (0,0);
+	TERM smaller := (-25,0) (-10,1) (0,0);
+//	TERM bigger := (0,0) (5,1) (15,1) (25,0);
+	TERM bigger := (0,0) (10,1) (25,0);
 	TERM muchbigger := (15,0) (25,1) (40,1);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
 	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
