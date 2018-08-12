@@ -9,26 +9,26 @@ public class FuzzyBall {
 		FIS fis = FIS.load(filename, true);
 		double dx, dy;
 		double speedAd, angleAd;
-		boolean hited = false;
+		boolean hit = false;
 
 		if (fis == null) {
 			System.err.println("Can't load file: '" + filename + "'");
 			System.exit(1);
 		}
 
-		Simulation simulation = new Simulation(10, 5, 1);
-		double speed = 5, angle = 45;
+		Simulation simulation = new Simulation(10, 10, 1);
+		double speed = 10, angle = 45;
 		int i = 1;
-		while(!hited) {
+		while(!hit) {
 			System.out.println("Attempt " + i);
 			System.out.println("Inputs");
 			System.out.println("Speed: " +speed + " || Angle: " +angle);
 			System.out.println();
 			
-			hited = simulation.simulate(angle, speed);
+			hit = simulation.simulate(angle, speed);
 			
-			if(hited)
-				System.out.println("\nHited!");
+			if(hit)
+				System.out.println("\nHit!");
 			else {
 
 				dx = simulation.getDX();
