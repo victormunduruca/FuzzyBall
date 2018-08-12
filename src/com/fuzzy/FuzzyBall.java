@@ -17,23 +17,23 @@ public class FuzzyBall {
 		}
 
 		Simulation simulation = new Simulation(10, 5, 1);
-		double speed = 5, angle = Math.toDegrees(45);
+		double speed = 5, angle = 45;
 		int i = 1;
 		while(!hited) {
-			System.out.println("Tentativa " + i);
-			System.out.println("Entradas");
+			System.out.println("Attempt " + i);
+			System.out.println("Inputs");
 			System.out.println("Speed: " +speed + " || Angle: " +angle);
 			System.out.println();
 			
 			hited = simulation.simulate(angle, speed);
 			
 			if(hited)
-				System.out.println("Acertô, miserave");
+				System.out.println("\nHited!");
 			else {
 
 				dx = simulation.getDX();
 				dy = simulation.getDY();
-				System.out.println("Diferenças:");
+				System.out.println("\nDiferences:");
 				System.out.println("DX: " + dx + " || DY: " + dy);
 				System.out.println();
 	
@@ -51,8 +51,8 @@ public class FuzzyBall {
 				speedAd = fb.getVariable("speed").defuzzify();
 				angleAd = fb.getVariable("angle").defuzzify();
 				
-				System.out.println("Ajustes");
-				System.out.println("Velocidade: " +speedAd + " || Ajuste ângulo: " + angleAd);
+				System.out.println("Outputs");
+				System.out.println("Speed: " +speedAd + " || Angle: " + angleAd);
 				System.out.println();
 				//
 				//		// Show output variable's chart

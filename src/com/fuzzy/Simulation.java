@@ -30,7 +30,7 @@ public class Simulation {
 			x = vX*time; //calculate x coordinate 
 			y = yC + vY*time - (g*(time*time))/2; //calculate y coordinate
 			
-			System.out.println(y + " | " + x);
+			System.out.println("X: " + x + " | Y: " + y);
 			
 			if(x < (xA + radius) && x > (xA - radius)) //check if yR for x coordinate equals xA
 				yR = y;
