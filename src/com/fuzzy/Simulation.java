@@ -1,7 +1,7 @@
 package com.fuzzy;
 
 public class Simulation {
-	private double xA, yA, yC, time = 0, xR = 0, yR;
+	private double xA, yA, yC, time, xR, yR;
 	private double vX, vY, x, y;
 	
 	private final double g = 9.8;
@@ -11,17 +11,24 @@ public class Simulation {
 		this.xA = xA;
 		this.yA = yA;
 		this.yC = yC;
-		y = yC;
 	}
 	
-	public void simulate(int angle, int velocity) {
+	public void simulate(double angle, double velocity) {
+		time = 0;
+		xR = 0;
+		yR = 0;
+		
+		y = yC;
+		double hmax = (velocity*velocity*Math.sin(angle)*Math.sin(angle))/(2*g);
+		System.out.println("Vy: " +hmax);
+		
 		while(y > 0) { //while don't heat the floor
 			vX = velocity*Math.cos(angle);//calculate vx and vy
 			vY = velocity*Math.sin(angle);
 			x = vX*time; //calculate x coordinate 
 			y = yC + vY*time - (g*(time*time))/2; //calculate y coordinate
 			
-			System.out.println(x+" "+y);
+			//System.out.println(x+" "+y);
 			if(x == xA) { //check if yR for x coordinate equals xA
 				yR = y;
 			}
