@@ -44,22 +44,22 @@ END_FUZZIFY
 
 DEFUZZIFY speed			// Defzzzify output variable 'speed' : {'muchslower', 'slower', 'faster', 'muchfaster'}
 	TERM muchslower := (-5, 1) (-3,1) (-2,0);
-//	TERM slower := (-3, 0) (-2,1) (-1,1) (0,0);
-	TERM slower := (-3, 0) (-1.5,1) (0,0);
-	TERM faster := (0, 0) (1.5,1) (3,0);
-//	TERM faster := (0, 0) (1, 1) (2,1) (3,0);
+	TERM slower := (-3, 0) (-2,1) (-1,1) (0,0);
+//	TERM slower := (-3, 0) (-1.5,1) (0,0);
+//	TERM faster := (0, 0) (1.5,1) (3,0);
+	TERM faster := (0, 0) (1, 1) (2,1) (3,0);
 	TERM muchfaster := (2, 0) (3, 1) (5, 1);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
 	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
 END_DEFUZZIFY
 
 DEFUZZIFY angle 		// Defzzzify output variable 'angle' : {'muchsmaller', 'smaller', 'bigger', 'muchbigger'}
-	TERM muchsmaller := (-40,1) (-25,1) (-15,0);
-//	TERM smaller := (-25,0) (-15,1) (-5,1) (0,0);
-	TERM smaller := (-25,0) (-10,1) (0,0);
-//	TERM bigger := (0,0) (5,1) (15,1) (25,0);
-	TERM bigger := (0,0) (10,1) (25,0);
-	TERM muchbigger := (15,0) (25,1) (40,1);
+	TERM muchsmaller := (-0.5,1) (-0.2,1) (-0.1,0);
+	TERM smaller := (-0.2,0) (-0.1,1) (0,0);
+//	TERM smaller := (-25,0) (-10,1) (0,0);
+	TERM bigger := (0,0) (0.1,1) (0.2,0) ;
+//	TERM bigger := (0,0) (10,1) (25,0);
+	TERM muchbigger := (0.1,0) (0.2,1) (0.5,1);
 	METHOD : COG;		// Use 'Center Of Gravity' defuzzification method
 	DEFAULT := 0;		// Default value is 0 (if no rule activates defuzzifier)
 END_DEFUZZIFY
@@ -69,23 +69,23 @@ RULEBLOCK No1
 	ACT : MIN;			// Use 'min' activation method
 	ACCU : MAX;			// Use 'max' accumulation method
 
-	/*RULE 1 : IF dx IS farbehind THEN speed IS muchfaster;
+	RULE 1 : IF dx IS farbehind THEN speed IS muchfaster;
 	RULE 2 : IF dx IS behind THEN speed IS faster;
 	RULE 3 : IF dx IS ahead THEN speed IS slower;
 	RULE 4 : IF dx IS farahead THEN speed IS muchslower;
 	RULE 5 : IF dy IS verylow THEN angle IS muchbigger;
 	RULE 6 : IF dy IS low THEN angle IS bigger;
 	RULE 7 : IF dy IS high THEN angle IS smaller;
-	RULE 8 : IF dy IS veryhigh THEN angle IS muchsmaller;*/
+	RULE 8 : IF dy IS veryhigh THEN angle IS muchsmaller; 
 	
-	RULE 1 : IF dx IS farbehind THEN speed IS muchfaster;
+	/*RULE 1 : IF dx IS farbehind THEN speed IS muchfaster;
 	RULE 2 : IF dx IS farbehind THEN angle IS muchsmaller;
 	RULE 3 : IF dx IS behind THEN speed IS faster;
 	RULE 4 : IF dx IS behind THEN angle IS smaller;
 	RULE 5 : IF dx IS ahead THEN speed IS slower;
 	RULE 6 : IF dx IS ahead THEN angle IS bigger;
 	RULE 7 : IF dx IS farahead THEN speed IS muchslower;
-	RULE 8 : IF dx IS farahead THEN angle IS muchbigger;
+	RULE 8 : IF dx IS farahead THEN angle IS muchbigger; */
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK

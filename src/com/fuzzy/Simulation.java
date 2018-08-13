@@ -27,16 +27,21 @@ public class Simulation {
 			
 			vX = velocity*Math.cos(angle);//calculate vx and vy
 			vY = velocity*Math.sin(angle);
+			
 			x = vX*time; //calculate x coordinate 
 			y = yC + vY*time - (g*(time*time))/2; //calculate y coordinate
 			
-			System.out.println("X: " + x + " | Y: " + y);
+			//System.out.println("X: " + x + " | Y: " + y);
 			
 			if(x < (xA + radius) && x > (xA - radius)) //check if yR for x coordinate equals xA
 				yR = y;
 			
-			if(y > (yA - radius) && y < (yA + radius) && x < (xA + radius) && x > (xA - radius))
+			if(y > (yA - radius) && y < (yA + radius) && x < (xA + radius) && x > (xA - radius)) {
+				System.out.println("X: " + x + " | Y: " + y);
 				return true;
+				
+			}
+				
 			
 			time = time + 0.1; //increments time
 		}
