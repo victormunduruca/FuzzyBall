@@ -18,7 +18,7 @@ public class FuzzyBall {
 			System.exit(1);
 		}
 
-		Simulation simulation = new Simulation(9, 5, 1);
+		Simulation simulation = new Simulation(10, 1, 1);
 		double speed = 1, angle = Math.toRadians(10);
 		hit = simulation.simulate(angle, speed);
 		
@@ -65,16 +65,30 @@ public class FuzzyBall {
 				System.out.println("Outputs");
 				System.out.println("Speed: " +speedAd + " || Angle: " + Math.toDegrees(angleAd));
 				System.out.println();
+
+				
 				//
 				//		// Show output variable's chart
 				speed += speedAd;
 				
 			    angle += angleAd;
+			    
+			   
 				
-				if(angle > 1.57)
-					angle = 1.57;
-				else if(angle < 0)
-					angle = 0;
+				if(angle > 1.57) {
+					angle = 1.50;
+					System.out.println("Foi maior que 90");
+				}
+				else if(angle < 0) {
+					angle = 0.01;
+					System.out.println("Foi menor que 0");
+				}
+					
+				 System.out.println("Results");
+					System.out.println("Speed: " +speed + " || Angle: " + Math.toDegrees(angle));
+					System.out.println();
+					
+						
 			
 
 			}
