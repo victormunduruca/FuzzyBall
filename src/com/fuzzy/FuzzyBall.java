@@ -18,8 +18,8 @@ public class FuzzyBall {
 			System.exit(1);
 		}
 
-		Simulation simulation = new Simulation(10, 1, 4);
-		double speed = 5, angle = Math.toRadians(45);
+		Simulation simulation = new Simulation(9, 5, 1);
+		double speed = 1, angle = Math.toRadians(10);
 		hit = simulation.simulate(angle, speed);
 		
 		if(hit)
@@ -27,19 +27,21 @@ public class FuzzyBall {
 		//System.out.println(Math.cos(Math.toRadians(180)-angle));
 	    int i = 1;
 		while(!hit) {
-			System.out.println("Attempt " + i);
-			System.out.println("Inputs");
-			System.out.println("Speed: " +speed + " || Angle: " +Math.toDegrees(angle));
-			System.out.println();
+//			System.out.println("Attempt " + i);
+//			System.out.println("Inputs");
+//			System.out.println("Speed: " +speed + " || Angle: " +Math.toDegrees(angle));
+//			System.out.println();
 			
 			hit = simulation.simulate(angle, speed);
+			dx = simulation.getDX();
+			dy = simulation.getDY();
 			
-			if(hit)
+			if(hit) {
 				System.out.println("\nHit!");
+	
+			}
 			else {
-
-				dx = simulation.getDX();
-				dy = simulation.getDY();
+		//		System.out.println(i + " " + simulation.getXr() + " " + simulation.getYnaHora());
 				System.out.println("\nDiferences:");
 				System.out.println("DX: " + dx + " || DY: " + dy);
 				System.out.println();
@@ -58,11 +60,11 @@ public class FuzzyBall {
 				speedAd = fb.getVariable("speed").defuzzify();
 				angleAd = fb.getVariable("angle").defuzzify();
 				
-				System.out.println(angleAd);
+				//System.out.println(angleAd);
 				
-//				System.out.println("Outputs");
-//				System.out.println("Speed: " +speedAd + " || Angle: " + Math.toDegrees(angleAd));
-//				System.out.println();
+				System.out.println("Outputs");
+				System.out.println("Speed: " +speedAd + " || Angle: " + Math.toDegrees(angleAd));
+				System.out.println();
 				//
 				//		// Show output variable's chart
 				speed += speedAd;
@@ -73,7 +75,7 @@ public class FuzzyBall {
 					angle = 1.57;
 				else if(angle < 0)
 					angle = 0;
-				
+			
 
 			}
 			

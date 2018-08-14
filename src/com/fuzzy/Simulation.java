@@ -3,7 +3,7 @@ package com.fuzzy;
 public class Simulation {
 	private double xA, yA, yC, time, xR, yR;
 	private double vX, vY, x = 0, y;
-	private double radius = 1.5;
+	private double radius = 1;
 	
 	private final double g = 9.8;
 
@@ -13,10 +13,11 @@ public class Simulation {
 		this.yA = yA;
 		this.yC = yC;
 	}
-	
+	double yNaHora = 0; //TODO
 	public boolean simulate(double angle, double velocity) {
+		
 		time = 0;
-		xR = 0;
+		
 		yR = 0;
 		
 		y = yC;
@@ -41,14 +42,27 @@ public class Simulation {
 				return true;
 				
 			}
+			
+		
+
+			xR = vX*((2*velocity*Math.sin(angle))/g);
 				
 			
 			time = time + 0.1; //increments time
 		}
-		xR = x;	//TODO
+		//xR = x;	//TODO
 		return false;
   	}
-	
+	public double getYnaHora() {
+		return yNaHora;
+	}
+	public double getXr() {
+		return xR;
+	}
+	public double getXa() {
+		return xA;
+	}
+
 	public double getDX() {
 		return xR - xA;
 	}
