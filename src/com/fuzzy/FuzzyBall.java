@@ -18,8 +18,8 @@ public class FuzzyBall {
 			System.exit(1);
 		}
 
-		Simulation simulation = new Simulation(10, 1, 1);
-		double speed = 1, angle = Math.toRadians(10);
+		Simulation simulation = new Simulation(2, 1, 5);
+		double speed = 30, angle = Math.toRadians(10);
 		hit = simulation.simulate(angle, speed);
 		
 		if(hit)
@@ -27,7 +27,7 @@ public class FuzzyBall {
 		//System.out.println(Math.cos(Math.toRadians(180)-angle));
 	    int i = 1;
 		while(!hit) {
-//			System.out.println("Attempt " + i);
+			//System.out.println("Attempt " + i);
 //			System.out.println("Inputs");
 //			System.out.println("Speed: " +speed + " || Angle: " +Math.toDegrees(angle));
 //			System.out.println();
@@ -37,14 +37,17 @@ public class FuzzyBall {
 			dy = simulation.getDY();
 			
 			if(hit) {
+				System.out.println(i + " " + simulation.getDY());
 				System.out.println("\nHit!");
-	
+				 System.out.println("Results");
+				System.out.println("Speed: " +speed + " || Angle: " + Math.toDegrees(angle));
+				System.out.println();		
 			}
 			else {
-		//		System.out.println(i + " " + simulation.getXr() + " " + simulation.getYnaHora());
-				System.out.println("\nDiferences:");
-				System.out.println("DX: " + dx + " || DY: " + dy);
-				System.out.println();
+				System.out.println(i + " " + simulation.getDY() + " " + simulation.getYr());
+//				System.out.println("\nDiferences:");
+//				System.out.println("DX: " + dx + " || DY: " + dy);
+//				System.out.println();
 	
 				//		
 				//		// Get default function block
@@ -62,9 +65,9 @@ public class FuzzyBall {
 				
 				//System.out.println(angleAd);
 				
-				System.out.println("Outputs");
-				System.out.println("Speed: " +speedAd + " || Angle: " + Math.toDegrees(angleAd));
-				System.out.println();
+//				System.out.println("Outputs");
+//				System.out.println("Speed: " +speedAd + " || Angle: " + Math.toDegrees(angleAd));
+//				System.out.println();
 
 				
 				//
@@ -77,17 +80,12 @@ public class FuzzyBall {
 				
 				if(angle > 1.57) {
 					angle = 1.50;
-					System.out.println("Foi maior que 90");
 				}
 				else if(angle < 0) {
 					angle = 0.01;
-					System.out.println("Foi menor que 0");
 				}
 					
-				 System.out.println("Results");
-					System.out.println("Speed: " +speed + " || Angle: " + Math.toDegrees(angle));
-					System.out.println();
-					
+				
 						
 			
 

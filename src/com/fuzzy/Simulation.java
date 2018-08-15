@@ -17,7 +17,7 @@ public class Simulation {
 	public boolean simulate(double angle, double velocity) {
 		
 		time = 0;
-		
+		double targetTime = 0;
 		yR = 0;
 		
 		y = yC;
@@ -34,11 +34,23 @@ public class Simulation {
 			
 			//System.out.println("X: " + x + " | Y: " + y);
 			
-			if(x < (xA + radius) && x > (xA - radius)) //check if yR for x coordinate equals xA
+			/*if(x < (xA + radius) && x > (xA - radius)) //check if yR for x coordinate equals xA
+			{
 				yR = y;
+				System.out.println("O Y na hora" +y);
+			}  */
+			
+			if(xA < xR) {
+				targetTime = xA/vX;
+				yR = yC + vY*targetTime - (g*(targetTime*targetTime))/2; 
+				//System.out.println(yR);
+			} else {
+				yR = 0;
+			}
+			
 			
 			if(y > (yA - radius) && y < (yA + radius) && x < (xA + radius) && x > (xA - radius)) {
-				System.out.println("X: " + x + " | Y: " + y);
+				//System.out.println("X: " + x + " | Y: " + y);
 				return true;
 				
 			}
@@ -56,8 +68,8 @@ public class Simulation {
 	public double getYnaHora() {
 		return yNaHora;
 	}
-	public double getXr() {
-		return xR;
+	public double getYr() {
+		return yR;
 	}
 	public double getXa() {
 		return xA;
